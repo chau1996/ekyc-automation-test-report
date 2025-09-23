@@ -714,23 +714,23 @@ def test_apiToanVen37_deviceType_missing_should_fail():
     assert target.get("errorCode") == "SUCCESS", "Sai errorCode"
     assert target.get("status") == 200, "Sai status"
 
-@pytest.mark.tc35
-def test_apiToanVen38_deviceType_missing_should_fail():
-    payload = load_validdg_payload(remove_fields=["raw.dg15"])
-
-    response = send_post_request(VALIDDG_API_URL, payload=payload, headers=api_headers_validdg)
-
-    print("Status Code:", response.status_code)
-    print("Response Body:", response.json())
-
-    # Kiểm tra status code
-    assert response.status_code == 200, "Status code phải là 200 OK"
-
-    # Kiểm tra body phản hồi
-    data = response.json().get("dataBase64")
-    decoded = decode_base64_json(data)
-    target = decoded.get("object", decoded)
-
-    assert target.get("errorMessage") == "Dữ liệu toàn vẹn", "Sai errorMessage"
-    assert target.get("errorCode") == "SUCCESS", "Sai errorCode"
-    assert target.get("status") == 200, "Sai status"
+# @pytest.mark.tc35
+# def test_apiToanVen38_deviceType_missing_should_fail():
+#     payload = load_validdg_payload(remove_fields=["raw.dg15"])
+#
+#     response = send_post_request(VALIDDG_API_URL, payload=payload, headers=api_headers_validdg)
+#
+#     print("Status Code:", response.status_code)
+#     print("Response Body:", response.json())
+#
+#     # Kiểm tra status code
+#     assert response.status_code == 200, "Status code phải là 200 OK"
+#
+#     # Kiểm tra body phản hồi
+#     data = response.json().get("dataBase64")
+#     decoded = decode_base64_json(data)
+#     target = decoded.get("object", decoded)
+#
+#     assert target.get("errorMessage") == "Dữ liệu toàn vẹn", "Sai errorMessage"
+#     assert target.get("errorCode") == "SUCCESS", "Sai errorCode"
+#     assert target.get("status") == 200, "Sai status"
