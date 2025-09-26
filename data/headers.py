@@ -17,6 +17,8 @@ api_headers_sod = {
     "Token-id": os.getenv("SOD_TOKEN_ID"),
     "Token-key": os.getenv("SOD_TOKEN_KEY"),
     "Content-Type": os.getenv("SOD_CONTENT_TYPE", "application/json"),
+    "Transaction-Partner-ID": os.getenv("SOD_TRANSACTION_PARTNER_ID"),
+    "Transaction-Partner-Signature": os.getenv("SOD_TRANSACTION_PARTNER_SIGNATURE"),
 }
 
 api_headers_faceid = {

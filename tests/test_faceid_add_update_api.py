@@ -8,8 +8,6 @@ from utils.api_helper import send_post_request
 from utils.faceid_loader import load_faceid_payload
 from utils.faceidfileservice import upload_face_image_and_get_hash, IMAGE_PATH
 
-
-
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 FLOWER_IMAGE_PATH = os.path.join(BASE_DIR, "data", "images", "flower.png")
 
@@ -185,7 +183,7 @@ def test_addupdate10_full_name_unit_blank_should_return_error():
 @pytest.mark.tc8
 def test_addupdate11_dob_unit_blank_should_return_error():
     payload = load_faceid_payload(overrides={
-        "customer_card.dob": ""
+        "customer_card.dob": None
     })
 
     response = send_post_request(FACEID_ADD_UPDATE_API_URL, payload=payload, headers=api_headers_faceid)
